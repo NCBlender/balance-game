@@ -25,8 +25,8 @@ public class FSRInput_lateral_AP_rotate : MonoBehaviour {
     private float FSRPercentRotation;
 
     public float testFSRValue = .5f;
-    public float forwardspeed = 2f;
-    public float sidespeed = 2f;
+    public float rotateSpeed = 36f;
+    public float sidespeed = 1f;
 
     private float translation;
 
@@ -59,13 +59,12 @@ public class FSRInput_lateral_AP_rotate : MonoBehaviour {
 
         float translation = Input.GetAxis("Horizontal");
 
-        transform.Translate(sidespeed * FSRPercentHorizontal * Time.deltaTime, 0, sidespeed * FSRInputVertical * Time.deltaTime);//for FSR controller
-        //transform.Translate(sidespeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0, sidespeed * Input.GetAxis("Vertical") * Time.deltaTime);//testing
+        transform.Translate(sidespeed * FSRPercentHorizontal * Time.deltaTime, 0, sidespeed * FSRPercentVertical * Time.deltaTime);//for FSR controller
+        //transform.Translate(sidespeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0, rotateSpeed * Input.GetAxis("Vertical") * Time.deltaTime);//testing
 
-        transform.Rotate(0, sidespeed * FSRPercentRotation * Time.deltaTime, 0);
+        transform.Rotate(0, rotateSpeed * FSRPercentRotation * Time.deltaTime, 0);
 
-
-
+       
         if (hit == true)
         {
             //anim.SetBool("isFlailing", true);
