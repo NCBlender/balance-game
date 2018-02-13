@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuSlider : MonoBehaviour {
+public class OptionsMenuSlider : MonoBehaviour {
 
     public GameObject SliderMenu;
     public GameObject Sandwich;
@@ -27,11 +27,6 @@ public class MenuSlider : MonoBehaviour {
     public void MenuOffScreen(bool newValue)
     {
         m_Animator.SetBool("slideOut", newValue);
-    }
-
-    public void MenuSlideIn(bool newValue)
-    {
-        m_Animator.SetBool("slideIn", newValue);
     }
 
     public void RotateIcon(bool newValue)

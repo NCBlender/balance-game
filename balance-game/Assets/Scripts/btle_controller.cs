@@ -39,10 +39,22 @@ public class btle_controller : MonoBehaviour
     public static int FSR2;
     public static int FSR3;
 
+    private AveragingScript averagingScript; //For averaging calcuations
+    private int countFSR0;
+    private float movingAvgFSR0;
+    private int countFSR1;
+    private float movingAvgFSR1;
+    private int countFSR2;
+    private float movingAvgFSR2;
+    private int countFSR3;
+    private float movingAvgFSR3;
+
 
     // Use this for initialization 
     void Start()
     {
+        averagingScript = GameObject.FindObjectOfType<AveragingScript>();
+
         btnSend.onClick.AddListener(sendData);
         //uiPanel.SetActive(false);
         txtDebug.text = "Please wait.\nConnecting to sensors.\n";
@@ -98,12 +110,12 @@ public class btle_controller : MonoBehaviour
     void receiveText(string sensorInfo)
     {
         txtDebug.text = "Connected to sensors";
-        txtReceive.text = sensorInfo;
+        txtReceive.text = FSR0 + "," + FSR1 + "," + FSR2 + "," + FSR3; //if you want raw data, use sensorInfo
         SensorArray = System.Array.ConvertAll(sensorInfo.Split(','), int.Parse);
-        FSR0 = SensorArray[0];
-        FSR1 = SensorArray[1];
-        FSR2 = SensorArray[2];
-        FSR3 = SensorArray[3];
+        FSR0 = averagingScript.RunningAverage(SensorArray[0], countFSR0, movingAvgFSR0);
+        FSR1 = averagingScript.RunningAverage(SensorArray[1], countFSR1, movingAvgFSR1);
+        FSR2 = averagingScript.RunningAverage(SensorArray[2], countFSR2, movingAvgFSR2);
+        FSR3 = averagingScript.RunningAverage(SensorArray[3], countFSR3, movingAvgFSR3);
     }
 
     void sendDataBluetooth(string sData)

@@ -12,14 +12,14 @@ EditorBuildSettings:
     path: Assets/_Scenes/LevelMenu.unity
     guid: 117632aa0f3d79f46b409e2a103b4fb5
   - enabled: 1
-    path: Assets/_Scenes/Balance Dot Game.unity
+    path: Assets/_Scenes/Dot Game.unity
     guid: 994a50d57a5e4084994ab49c07a028f8
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Rollerskater Game.unity
     guid: fea2847fbf5e45944ae2ac1ff86ecdc8
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/HeatMap.unity
     guid: 18027fc4e9519fc4ba62e663b894fe2b
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/VR_scene.unity
     guid: e81301ec289654cb9b486b8abd0db779
