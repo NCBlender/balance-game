@@ -15,7 +15,7 @@ public class FSR_L_HeatMap : MonoBehaviour {
     [Range(0.0f,1.0f)]
     public float testFSRValue = .5f;
     public float FSRPercentHorizontal;
-    public float FSRPercentVertical;
+    
 
     public float LFootAP_Percent;
 
@@ -40,10 +40,7 @@ public class FSR_L_HeatMap : MonoBehaviour {
         FSRInputHorizontal = (sensor0 + sensor1) - (sensor2 + sensor3);
         FSRPercentHorizontal = ((FSRInputHorizontal) / (1f + sensor0 + sensor1 + sensor2 + sensor3));
 
-        FSRInputVertical = (sensor1 + sensor2) - (sensor0 + sensor3);
-        FSRPercentVertical = ((FSRInputVertical) / (1f + sensor0 + sensor1 + sensor2 + sensor3));
-
-        LFootAP_Percent = ((sensor2 - sensor3) / (1f + sensor2 + sensor3));
+       LFootAP_Percent = ((sensor2 - sensor3) / (1f + sensor2 + sensor3));
 
         h = Input.GetAxis("Horizontal");
         anim.SetFloat("Blend", LFootAP_Percent);

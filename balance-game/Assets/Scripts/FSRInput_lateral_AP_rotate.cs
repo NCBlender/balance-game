@@ -28,8 +28,6 @@ public class FSRInput_lateral_AP_rotate : MonoBehaviour {
     public float rotateSpeed = 36f;
     public float sidespeed = 1f;
 
-    private float translation;
-
 
     void Start () {
         anim = GetComponent<Animator>();
@@ -52,12 +50,8 @@ public class FSRInput_lateral_AP_rotate : MonoBehaviour {
         FSRInputRotation = (sensor0 + sensor2) - (sensor1 + sensor3);
         FSRPercentRotation = ((FSRInputRotation) / (1f + sensor0 + sensor1 + sensor2 + sensor3));
 
-        //FSR test of proportional movement
-        float step = moveSpeed * Time.deltaTime;
-        //transform.position = Vector3.Lerp(transform.position, new Vector3(FSRPercentHorizontal * 77f, transform.position.y, transform.position.z), step);
 
 
-        float translation = Input.GetAxis("Horizontal");
 
         transform.Translate(sidespeed * FSRPercentHorizontal * Time.deltaTime, 0, sidespeed * FSRPercentVertical * Time.deltaTime);//for FSR controller
         //transform.Translate(sidespeed * Input.GetAxis("Horizontal") * Time.deltaTime, 0, rotateSpeed * Input.GetAxis("Vertical") * Time.deltaTime);//testing

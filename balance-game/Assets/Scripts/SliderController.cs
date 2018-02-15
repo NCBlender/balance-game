@@ -10,6 +10,7 @@ public class SliderController : MonoBehaviour {
     public GameObject TimeInTarget;
     public GameObject HighScore;
     public GameObject SineWave;
+    public GameObject Measure;
 
 
 
@@ -47,6 +48,11 @@ public class SliderController : MonoBehaviour {
     public void SoundOn(bool newValue)
     {
         SineWave.SetActive(newValue);
+    }
+
+    public void MeasureOn(bool newValue)
+    {
+        Measure.SetActive(newValue);
     }
 
 

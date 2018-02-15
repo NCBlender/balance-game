@@ -3078,7 +3078,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1741120348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c15482cfe76757408df2010589c8c8f, type: 3}
+  m_Script: {fileID: 11500000, guid: c0b67a234d05f424b90e037d59e98db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MOVINGAVERAGELENGTH: 1000

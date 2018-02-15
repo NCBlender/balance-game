@@ -20,13 +20,15 @@ public class FSRInputSideOnly : MonoBehaviour {
     private int FSRInputHorizontal;
     private int FSRInputVertical;
     private float FSRPercentHorizontal;
-    private float FSRPercentVertical;
-
+    
     public float testFSRValue = .5f;
     public float forwardspeed = 2f;
     public float sidespeed = 2f;
 
     private float translation;
+
+    [Range(0, 1)]
+    public float testRange;
 
 
     void Start () {
@@ -44,20 +46,10 @@ public class FSRInputSideOnly : MonoBehaviour {
         FSRInputHorizontal = (sensor0 + sensor1) - (sensor2 + sensor3);
         FSRPercentHorizontal = ((FSRInputHorizontal) / (1f + sensor0 + sensor1 + sensor2 + sensor3));
 
-        FSRInputVertical = (sensor1 + sensor2) - (sensor0 + sensor3);
-        FSRPercentVertical = ((FSRInputVertical) / (1f + sensor0 + sensor1 + sensor2 + sensor3));
-
-        //FSR test of proportional movement
-        float step = moveSpeed * Time.deltaTime;
-        //transform.position = Vector3.Lerp(transform.position, new Vector3(FSRPercentHorizontal * 77f, transform.position.y, transform.position.z), step);
-
-
-     
-               
+             
         transform.Translate(sidespeed * FSRPercentHorizontal * Time.deltaTime, 0, forwardspeed * Time.deltaTime);
-
-
-        if ((FSRPercentHorizontal > .4)&&(FSRPercentHorizontal < .6))
+        
+        if ((FSRPercentHorizontal > .2)&&(FSRPercentHorizontal < .8))
         {
             anim.SetBool("istwoFeet", true);
             anim.SetBool("isSkatingRight", false);
@@ -70,7 +62,7 @@ public class FSRInputSideOnly : MonoBehaviour {
         }
 
 
-        if (FSRPercentHorizontal < .4)
+        else if (FSRPercentHorizontal < .2)
         {
             anim.SetBool("isSkatingLeft", true);
             anim.SetBool("isSkatingRight", false);
@@ -83,7 +75,7 @@ public class FSRInputSideOnly : MonoBehaviour {
             }
         }
 
-        if (FSRPercentHorizontal > .6)
+        else if (FSRPercentHorizontal > .8)
         {
             anim.SetBool("isSkatingRight", true);
             anim.SetBool("isSkatingLeft", false);
@@ -98,12 +90,12 @@ public class FSRInputSideOnly : MonoBehaviour {
 
         if (hit == true)
         {
-            //anim.SetBool("isFlailing", true);
+            anim.SetBool("isFlailing", true);
             audioSound.clip = woah[Random.Range(0, woah.Length)];
             audioSound.Play();
             hit = !hit;
-            anim.SetBool("isFlailing", false);
-            //Debug.Log("Hit = false now?");
+            //anim.SetBool("isFlailing", false);
+            Debug.Log("Hit");
         }
 
         

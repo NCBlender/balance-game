@@ -2112,7 +2112,6 @@ GameObject:
   - component: {fileID: 990261570}
   - component: {fileID: 990261569}
   - component: {fileID: 990261568}
-  - component: {fileID: 990261567}
   - component: {fileID: 990261566}
   m_Layer: 0
   m_Name: Skater
@@ -2141,19 +2140,7 @@ MonoBehaviour:
   testFSRValue: 0.5
   forwardspeed: 4.5
   sidespeed: 6
---- !u!65 &990261567
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 65308972672963174, guid: 70fbdb6297c306b49b9782892291b731,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 990261565}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 4.59, y: 3.07, z: 1.68}
-  m_Center: {x: 0, y: 5.72, z: 0}
+  testRange: 0
 --- !u!114 &990261568
 MonoBehaviour:
   m_ObjectHideFlags: 0
