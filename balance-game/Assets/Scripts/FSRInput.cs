@@ -43,11 +43,19 @@ public class FSRInput : MonoBehaviour {
         FSRInputVertical = (sensor1 + sensor2) - (sensor0 + sensor3);
         FSRPercentVertical = ((FSRInputVertical) / (1f + sensor0 + sensor1 + sensor2 + sensor3));
 
-        
+        float step = moveSpeed * Time.deltaTime;
 
         //FSR proportional movement
-        float step = moveSpeed * Time.deltaTime;
-        transform.position = Vector3.Lerp(transform.position, new Vector3(FSRPercentHorizontal * 77f, FSRPercentVertical * 55f, transform.position.z), step);
+
+        if (sensor0 + sensor1 + sensor2 + sensor3 > 600)
+        {
+            transform.position = Vector3.Lerp(transform.position, new Vector3(FSRPercentHorizontal * 77f, FSRPercentVertical * 55f, transform.position.z), step);
+        }
+        else
+        {
+            transform.position = new Vector3(0,0,80);
+        }
+        
 
 
         //Keyboard test of proportional movement
